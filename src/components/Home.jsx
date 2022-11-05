@@ -42,7 +42,7 @@ const Home = () => {
         <div>
             <h1>Hello.</h1>
             <p>Github API Fetch implementation for AltSchool Second Semester Examination</p>
-            {showButton && <button onClick={getProfile}>Get my profile data</button>}
+            {showButton && <button onClick={getProfile} style={{margin: "10px  0 10px ", textTransform: "uppercase"} }>Get my profile data</button>}
             {isLoading && <h2>Getting profile deets...</h2>}
             {!isLoading && details.map((profile) => (
                 <ProfileInfo
