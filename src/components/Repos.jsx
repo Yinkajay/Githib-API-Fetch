@@ -21,6 +21,7 @@ const Repos = () => {
                 .then(data => {
                     const formattedRepos = data.map(repo => {
                         return {
+                            key: repo.id,
                             Name: repo.name,
                             Description: repo.description,
                             Link: repo['html_url'],
@@ -37,7 +38,6 @@ const Repos = () => {
         }
     }
 
-
     useEffect(() => {
         getProfile()
     }, [])
@@ -51,7 +51,7 @@ const Repos = () => {
                 {!isLoading && <div className={styles['repo-container']}>
                     {repos.slice((page - 1) * reposPerPage, page * reposPerPage).map(repo => (
                         <RepComponent
-                            key={repo.id}
+                            key={repo.key}
                             name={repo.Name}
                             description={repo.Description}
                             link={repo.Link}
@@ -61,7 +61,7 @@ const Repos = () => {
             </div>
             {!isLoading &&
                 <div className={styles['button-area']}>
-                    <button>
+                    <button className={`${styles.button} ${styles['button-prev']} `} onClick={() => setPage((p) => p - 1)} disabled={page <= 1}>
                         Prev
                     </button>
                     {Array.from({ length: Math.ceil(repos.length / reposPerPage) }, (value, index) => index + 1).map(
@@ -69,7 +69,7 @@ const Repos = () => {
                             <button className={styles.button} onClick={() => setPage(each)}>{each}</button>
                         )
                     )}
-                    <button>
+                    <button className={`${styles.button} ${styles['button-next']} `} onClick={() => setPage((p) => p + 1)} disabled={page >= (repos.length / reposPerPage)}>
                         Next
                     </button>
                 </div>

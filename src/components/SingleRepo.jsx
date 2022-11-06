@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import HighlightedRepo from './HighlightedRepo';
 
 let repoArray = [];
-let repo = true
+// let repo = true
 
 const SingleRepo = (props) => {
     const [loading, setIsLoading] = useState(true)
@@ -35,33 +35,34 @@ const SingleRepo = (props) => {
 
     const params = useParams()
 
-    // const repo = repoArray.find(repo => repo.Name === params.repoID)    
+    let repo = repoArray.find(repo => repo.Name === params.repoID)   
+    console.log(repo); 
     // { !loading && repo }
 
     console.log(repoArray);
 
 
-    let content
-    if (!loading) {
-        
-        content = <HighlightedRepo name={repo.Name} repoURL={repo.Link} />
-        return content
-    } else {
-        content = <p>Something is wrong</p>
-        return content
-    }
+    // let content;
+    // if (!loading) {
+    //     content = <HighlightedRepo name={repo.Name} repoURL={repo.Link} />
+    // } else {
+    //     content = <p>Something is wrong</p>
+    // }
 
+    
 
-return (
-    <>
-        <h1>Repo Details</h1>
-        {/* {content} */}
-        <h2>
-            {params.repoId}
-        </h2>
-        {console.log('hi')}
-    </>
-)
+        return (!loading &&
+            <>
+                <h1>Repo Details</h1>
+                {/* {content} */}
+                <div>
+                    <h2>
+                        Name - {params.repoId}
+                    </h2>
+                </div>
+            </>
+        )
+
 }
 
 export default SingleRepo

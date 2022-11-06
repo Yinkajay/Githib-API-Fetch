@@ -7,19 +7,23 @@ import Home from './components/Home'
 import Repos from './components/Repos'
 import SingleRepo from './components/SingleRepo'
 import NotFound from './components/NotFound'
+import { ErrorBoundary } from 'react-error-boundary'
+import ErrorWarning from './components/ErrorWarning'
 
 function App() {
 
 
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/repos' element={<Repos />} />
-        <Route path='/repos/:repoId' element={<SingleRepo />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
+      <ErrorBoundary FallbackComponent={ErrorWarning}>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/repos' element={<Repos />} />
+          <Route path='/repos/:repoId' element={<SingleRepo />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </ErrorBoundary>
     </>
   )
 }
