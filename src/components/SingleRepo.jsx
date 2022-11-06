@@ -26,7 +26,6 @@ const SingleRepo = (props) => {
         <main>
             <h1 style={{textAlign: 'center', margin: '10px 0'}}>Repo Details</h1>
             <div className={styles['srepo-card']}>
-            <a href={url}>
                 <h2>
                     <FaGithub />
                     <p>Repo Name - {name}</p>
@@ -37,7 +36,6 @@ const SingleRepo = (props) => {
                     </span>
                     </p>
                 </h2>
-            </a>
             </div>
         </main>
     )
