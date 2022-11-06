@@ -45,21 +45,26 @@ const Repos = () => {
 
     return (
         <>
-            <div>
-                <h2>These are my GitHub Repositories.</h2>
-                {isLoading && <div className={styles['lds-hourglass']}></div>}
-                {!isLoading && <div className={styles['repo-container']}>
-                    {repos.slice((page - 1) * reposPerPage, page * reposPerPage).map(repo => (
-                        <RepComponent
-                            key={repo.key}
-                            name={repo.Name}
-                            description={repo.Description}
-                            link={repo.Link}
-                        />
-                    ))}
-                </div>}
-            </div>
-            {!isLoading &&
+            <main>
+                <section>
+                    <h1>These are my GitHub Repositories.</h1>
+                    <p>Click the button on any repo to get more details</p>
+                    {isLoading && <div className={styles['lds-hourglass']}></div>}
+                    {!isLoading && <div className={styles['repo-container']}>
+                        {repos.slice((page - 1) * reposPerPage, page * reposPerPage).map(repo => (
+                            <RepComponent
+                                key={repo.key}
+                                name={repo.Name}
+                                description={repo.Description}
+                                link={repo.Link}
+                            />
+                        ))}
+                    </div>}
+                </section>
+            </main>
+            <section>
+            {
+                !isLoading &&
                 <div className={styles['button-area']}>
                     <button className={`${styles.button} ${styles['button-prev']} `} onClick={() => setPage((p) => p - 1)} disabled={page <= 1}>
                         Prev
@@ -74,6 +79,7 @@ const Repos = () => {
                     </button>
                 </div>
             }
+            </section>
         </>
     )
 }

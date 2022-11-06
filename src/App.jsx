@@ -9,6 +9,7 @@ import SingleRepo from './components/SingleRepo'
 import NotFound from './components/NotFound'
 import { ErrorBoundary } from 'react-error-boundary'
 import ErrorWarning from './components/ErrorWarning'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route path='/repos/:repoId' element={<SingleRepo />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
+        {/* <Footer /> */}
       </ErrorBoundary>
     </>
   )

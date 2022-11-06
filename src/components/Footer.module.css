@@ -1,0 +1,15 @@
+footer{
+    background-color: red;
+    z-index: 4;
+    height: 20px;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+}
+
+
+.ftr {
+    text-align: center;
+    color: black;
+    font-size: 12px;
+}

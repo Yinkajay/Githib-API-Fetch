@@ -1,9 +1,9 @@
 .repo-container {
-    background-color: rgba(5, 5, 5, 1);
+    /* background-color: rgba(5, 5, 5, 1); */
     display: flex;
     flex-wrap: wrap;
     border-radius: 5px;
-    border: 5px outset rgb(49, 106, 95)111
+    border: 5px outset rgb(28, 78, 68);
 }
 
 .button-area {
@@ -16,13 +16,12 @@ button {
     margin: 0 5px;
 }
 
-.button:disabled{
+.button:disabled {
     cursor: not-allowed;
     border: 1px solid red;
 }
 
 .lds-hourglass {
-    display: inline-block;
     position: relative;
     width: 80px;
     height: 80px;
