@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import AllRepositories from './AllRepositories'
+import { Helmet } from 'react-helmet-async'
 import RepComponent from './RepComponent'
 import styles from './Repos.module.css'
-
+import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa'
 
 const Repos = () => {
     const [repos, setRepos] = useState([])
@@ -25,7 +25,7 @@ const Repos = () => {
                             Name: repo.name,
                             Description: repo.description,
                             Link: repo['html_url'],
-                            id: repo.id
+                            id: repo.id,
                         }
                     })
                     console.log(formattedRepos);
@@ -45,6 +45,11 @@ const Repos = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Repositories</title>
+                <meta name='description' content='List of all repo data'></meta>
+                <link rel='canonical' />
+            </Helmet>
             <main>
                 <section>
                     <h1>These are my GitHub Repositories.</h1>
@@ -56,29 +61,29 @@ const Repos = () => {
                                 key={repo.key}
                                 name={repo.Name}
                                 description={repo.Description}
-                                link={repo.Link}
+                                link={repo.Link}              
                             />
                         ))}
                     </div>}
                 </section>
             </main>
             <section>
-            {
-                !isLoading &&
-                <div className={styles['button-area']}>
-                    <button className={`${styles.button} ${styles['button-prev']} `} onClick={() => setPage((p) => p - 1)} disabled={page <= 1}>
-                        Prev
-                    </button>
-                    {Array.from({ length: Math.ceil(repos.length / reposPerPage) }, (value, index) => index + 1).map(
-                        (each) => (
-                            <button className={styles.button} onClick={() => setPage(each)}>{each}</button>
-                        )
-                    )}
-                    <button className={`${styles.button} ${styles['button-next']} `} onClick={() => setPage((p) => p + 1)} disabled={page >= (repos.length / reposPerPage)}>
-                        Next
-                    </button>
-                </div>
-            }
+                {
+                    !isLoading &&
+                    <div className={styles['button-area']}>
+                        <button className={`${styles.button} ${styles['button-prev']} `} onClick={() => setPage((p) => p - 1)} disabled={page <= 1}>
+                            <FaArrowCircleLeft/>
+                        </button>
+                        {Array.from({ length: Math.ceil(repos.length / reposPerPage) }, (value, index) => index + 1).map(
+                            (each) => (
+                                <button className={styles.button} onClick={() => setPage(each)}>{each}</button>
+                            )
+                        )}
+                        <button className={`${styles.button} ${styles['button-next']} `} onClick={() => setPage((p) => p + 1)} disabled={page >= (repos.length / reposPerPage)}>
+                        <FaArrowCircleRight/>
+                        </button>
+                    </div>
+                }
             </section>
         </>
     )

@@ -9,7 +9,8 @@ const RepComponent = (props) => {
       <h2 className={styles['repo-desc']}>Description - {props.description}</h2>
       <h2 className={styles['repo-link']}>Repo URL - <a href={props.link}>{props.link}</a></h2>
       <section>
-        <Link to={`/repos/${props.name}`} >
+        <Link to={`/repos/${props.name}`} state={{name: props.name, description: props.description, url:props.link, }}>
+        {/* <Link to={`/repos/${props.name}`} state={props.state}> */}
           <button className={styles['repo-btn']}>
             Repo Details
           </button>

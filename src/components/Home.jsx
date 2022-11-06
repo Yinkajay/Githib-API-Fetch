@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import ProfileInfo from './ProfileInfo'
 import styles from './Home.module.css'
-import { } from 'react-icons/fa'
+import { Helmet } from 'react-helmet-async'
 
 const Home = () => {
     const [details, setDetails] = useState([])
@@ -41,6 +41,10 @@ const Home = () => {
 
     return (
         <main>
+            <Helmet>
+                <title>Home</title>
+                <meta name='description' content='Get you Github portfolio data'></meta>
+            </Helmet>
             <section>
                 <h1>Hello.</h1>
                 <p>Github API Fetch implementation for AltSchool Second Semester Examination.</p>

@@ -8,12 +8,12 @@
     min-height: 10rem;
     border-radius: 10px;
     box-shadow: 1px 1px 1px 1px rgb(49, 50, 53);
-    transition: filter 0.2s linear;
+    transition: transform 0.2s linear;
 }
 
 .repo-card:hover {
-    filter: brightness(92%);
     cursor: pointer;
+    transform: scale(0.99);
 }
 
 .repo-name {
