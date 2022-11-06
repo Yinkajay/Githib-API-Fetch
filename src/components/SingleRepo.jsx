@@ -2,8 +2,8 @@ import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom'
-import HighlightedRepo from './HighlightedRepo';
 import styles from './SingleRepo.module.css'
+import { FaGithub } from 'react-icons/fa';
 
 let repoArray = [];
 // let repo = true
@@ -24,13 +24,20 @@ const SingleRepo = (props) => {
     console.log(url);    
     return (
         <main>
-            <h1>Repo Details</h1>
+            <h1 style={{textAlign: 'center', margin: '10px 0'}}>Repo Details</h1>
             <div className={styles['srepo-card']}>
+            <a href={url}>
                 <h2>
+                    <FaGithub />
                     <p>Repo Name - {name}</p>
                     <p>Repo Description - {description}</p>
-                    <p>Link to Repo - <a href={url}>{url}</a></p>
+                    <p>Link to Repo - <span className={styles.underline}><a href={url}>
+                        {url}
+                    </a>
+                    </span>
+                    </p>
                 </h2>
+            </a>
             </div>
         </main>
     )

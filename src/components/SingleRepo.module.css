@@ -1,8 +1,8 @@
-.srepo-card{
+.srepo-card {
     max-width: 90vw;
-    width:30rem;
-    background-color: black;
-    color: white;
+    width: 30rem;
+    /* background-color: black; */
+    /* color: white; */
     margin: 0 auto;
     padding: 40px 10px;
     border-radius: 10px;
@@ -11,17 +11,26 @@
     box-shadow: 0px 0px 3px black;
 }
 
-.srepo-card:hover{
+.srepo-card p {
+    font-size: 18px;
+}
+
+.srepo-card:hover {
     color: black;
     background-color: white;
 }
 
-.srepo-card  a{
+.srepo-card a{
     text-decoration: none;
     color: inherit;
 }
 
-.srepo-card  a:visited{
+.srepo-card a:visited {
     text-decoration: none;
     color: inherit;
+}
+
+.underline{
+    text-decoration: underline;
+    color: gold;
 }
